@@ -8,624 +8,125 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --cream: #F8F4EE;
-    --warm-white: #FDFAF6;
-    --charcoal: #1C1A17;
-    --charcoal-soft: #2E2B26;
-    --mid: #6B6358;
-    --light: #A89E92;
-    --accent: #C4832A;
-    --accent-light: #E8C98A;
-    --accent-pale: #F5EDD8;
-    --border: rgba(100, 90, 78, 0.18);
-    --border-strong: rgba(100, 90, 78, 0.35);
+    --cream: #F8F4EE; --warm-white: #FDFAF6; --charcoal: #1C1A17;
+    --charcoal-soft: #2E2B26; --mid: #6B6358; --light: #A89E92;
+    --accent: #C4832A; --accent-light: #E8C98A; --accent-pale: #F5EDD8;
+    --border: rgba(100,90,78,0.18); --border-strong: rgba(100,90,78,0.35);
     --font-display: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'DM Sans', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--cream);
-    color: var(--charcoal);
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  body { background: var(--cream); color: var(--charcoal); font-family: var(--font-body); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
 
   /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(248, 244, 238, 0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-    padding: 1.1rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    color: var(--charcoal);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(248,244,238,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); padding: 1.1rem 3rem; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.08em; color: var(--charcoal); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 8rem 2rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(196,131,42,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 60% at 80% 20%, rgba(196,131,42,0.05) 0%, transparent 70%);
-  }
-
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    font-weight: 300;
-    line-height: 1.0;
-    letter-spacing: 0.03em;
-    color: var(--charcoal);
-    margin-bottom: 0.3rem;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    font-family: var(--font-display);
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--mid);
-    margin-bottom: 2.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .hero-desc {
-    max-width: 540px;
-    font-size: 0.95rem;
-    color: var(--mid);
-    line-height: 1.8;
-    margin-bottom: 3rem;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: var(--charcoal);
-    color: var(--cream);
-    padding: 0.85rem 2.2rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.2s;
-  }
-
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(196,131,42,0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 80% 20%, rgba(196,131,42,0.05) 0%, transparent 70%); }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(3.5rem,8vw,7rem); font-weight: 300; line-height: 1.0; letter-spacing: 0.03em; color: var(--charcoal); margin-bottom: 0.3rem; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-family: var(--font-display); font-size: clamp(1.2rem,2.5vw,1.7rem); font-weight: 300; font-style: italic; color: var(--mid); margin-bottom: 2.5rem; margin-top: 0.5rem; }
+  .hero-desc { max-width: 540px; font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 3rem; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--charcoal); color: var(--cream); padding: 0.85rem 2.2rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.2s; }
   .hero-cta:hover { background: var(--accent); transform: translateY(-1px); }
+  .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--light); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; animation: bounce 2s ease-in-out infinite; }
+  .scroll-hint::after { content: ''; width: 1px; height: 32px; background: linear-gradient(to bottom, var(--light), transparent); }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(5px); } }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--light);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    animation: bounce 2s ease-in-out infinite;
-  }
-
-  .scroll-hint::after {
-    content: '';
-    width: 1px;
-    height: 32px;
-    background: linear-gradient(to bottom, var(--light), transparent);
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(5px); }
-  }
-
-  /* SECTION SHARED */
+  /* SHARED */
   section { padding: 6rem 2rem; }
-
-  .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.8rem;
-    display: block;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 300;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-
-  .section-desc {
-    font-size: 0.95rem;
-    color: var(--mid);
-    max-width: 520px;
-    line-height: 1.8;
-  }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; display: block; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem,4vw,3.2rem); font-weight: 300; line-height: 1.1; margin-bottom: 1rem; }
+  .section-desc { font-size: 0.95rem; color: var(--mid); max-width: 520px; line-height: 1.8; }
 
   /* ABOUT */
-  .about {
-    background: var(--warm-white);
-    border-top: 0.5px solid var(--border);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .about-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .stat-card {
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    border-radius: 4px;
-    padding: 1.5rem;
-  }
-
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-label {
-    font-size: 0.78rem;
-    color: var(--mid);
-    letter-spacing: 0.05em;
-  }
+  .about { background: var(--warm-white); border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+  .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .stat-card { background: var(--cream); border: 0.5px solid var(--border); border-radius: 4px; padding: 1.5rem; }
+  .stat-number { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+  .stat-label { font-size: 0.78rem; color: var(--mid); letter-spacing: 0.05em; }
 
   /* DEMOS */
-  .demos {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .demos-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .bots-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    align-items: start;
-  }
+  .demos { max-width: 1200px; margin: 0 auto; }
+  .demos-header { text-align: center; margin-bottom: 4rem; }
+  .bots-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; align-items: start; }
 
   /* BOT CARD */
-  .bot-card {
-    background: var(--warm-white);
-    border: 0.5px solid var(--border);
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: box-shadow 0.3s, transform 0.3s;
-  }
+  .bot-card { background: var(--warm-white); border: 0.5px solid var(--border); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.3s, transform 0.3s; }
+  .bot-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(28,26,23,0.08); }
+  .bot-header { padding: 1.5rem 1.5rem 1rem; border-bottom: 0.5px solid var(--border); background: var(--charcoal); color: var(--cream); }
+  .bot-type { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.4rem; }
+  .bot-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; line-height: 1.2; }
+  .bot-desc { font-size: 0.78rem; color: var(--light); margin-top: 0.3rem; line-height: 1.5; }
 
-  .bot-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(28, 26, 23, 0.08);
-  }
-
-  .bot-header {
-    padding: 1.5rem 1.5rem 1rem;
-    border-bottom: 0.5px solid var(--border);
-    background: var(--charcoal);
-    color: var(--cream);
-  }
-
-  .bot-type {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 0.4rem;
-  }
-
-  .bot-name {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 300;
-    line-height: 1.2;
-  }
-
-  .bot-desc {
-    font-size: 0.78rem;
-    color: var(--light);
-    margin-top: 0.3rem;
-    line-height: 1.5;
-  }
-
-  /* CHAT UI */
-  .chat-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    height: 420px;
-  }
-
-  .chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-  }
-
+  /* CHAT */
+  .chat-body { flex: 1; display: flex; flex-direction: column; height: 420px; }
+  .chat-messages { flex: 1; overflow-y: auto; padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
   .chat-messages::-webkit-scrollbar { width: 4px; }
   .chat-messages::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 2px; }
-
-  .msg {
-    display: flex;
-    flex-direction: column;
-    max-width: 85%;
-    gap: 0.2rem;
-  }
-
+  .msg { display: flex; flex-direction: column; max-width: 85%; gap: 0.2rem; }
   .msg.user { align-self: flex-end; align-items: flex-end; }
   .msg.bot { align-self: flex-start; }
-
-  .msg-bubble {
-    padding: 0.65rem 0.9rem;
-    border-radius: 4px;
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-
-  .msg.user .msg-bubble {
-    background: var(--charcoal);
-    color: var(--cream);
-  }
-
-  .msg.bot .msg-bubble {
-    background: var(--accent-pale);
-    color: var(--charcoal-soft);
-    border: 0.5px solid rgba(196, 131, 42, 0.2);
-  }
-
-  .msg-time {
-    font-size: 0.62rem;
-    color: var(--light);
-  }
-
-  .typing-indicator {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    padding: 0.65rem 0.9rem;
-    background: var(--accent-pale);
-    border: 0.5px solid rgba(196, 131, 42, 0.2);
-    border-radius: 4px;
-    width: fit-content;
-  }
-
-  .typing-dot {
-    width: 5px; height: 5px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: typingPulse 1.2s ease-in-out infinite;
-  }
-
+  .msg-bubble { padding: 0.65rem 0.9rem; border-radius: 4px; font-size: 0.82rem; line-height: 1.55; }
+  .msg.user .msg-bubble { background: var(--charcoal); color: var(--cream); }
+  .msg.bot .msg-bubble { background: var(--accent-pale); color: var(--charcoal-soft); border: 0.5px solid rgba(196,131,42,0.2); }
+  .msg-time { font-size: 0.62rem; color: var(--light); }
+  .typing-indicator { display: flex; gap: 4px; align-items: center; padding: 0.65rem 0.9rem; background: var(--accent-pale); border: 0.5px solid rgba(196,131,42,0.2); border-radius: 4px; width: fit-content; }
+  .typing-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; animation: typingPulse 1.2s ease-in-out infinite; }
   .typing-dot:nth-child(2) { animation-delay: 0.2s; }
   .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-  @keyframes typingPulse {
-    0%, 60%, 100% { opacity: 0.3; transform: scale(1); }
-    30% { opacity: 1; transform: scale(1.2); }
-  }
+  @keyframes typingPulse { 0%,60%,100% { opacity: 0.3; transform: scale(1); } 30% { opacity: 1; transform: scale(1.2); } }
 
   /* QUICK REPLIES */
-  .quick-replies {
-    padding: 0.6rem 1.2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    border-top: 0.5px solid var(--border);
-  }
+  .quick-replies { padding: 0.6rem 1.2rem; display: flex; flex-wrap: wrap; gap: 0.4rem; border-top: 0.5px solid var(--border); }
+  .qr-btn { font-size: 0.72rem; padding: 0.3rem 0.7rem; border: 0.5px solid var(--border-strong); background: transparent; color: var(--mid); border-radius: 2px; cursor: pointer; font-family: var(--font-body); transition: all 0.15s; white-space: nowrap; }
+  .qr-btn:hover { background: var(--charcoal); color: var(--cream); border-color: var(--charcoal); }
 
-  .qr-btn {
-    font-size: 0.72rem;
-    padding: 0.3rem 0.7rem;
-    border: 0.5px solid var(--border-strong);
-    background: transparent;
-    color: var(--mid);
-    border-radius: 2px;
-    cursor: pointer;
-    font-family: var(--font-body);
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-
-  .qr-btn:hover {
-    background: var(--charcoal);
-    color: var(--cream);
-    border-color: var(--charcoal);
-  }
-
-  /* CHAT INPUT */
-  .chat-input-area {
-    padding: 0.8rem 1rem;
-    border-top: 0.5px solid var(--border);
-    display: flex;
-    gap: 0.6rem;
-    background: var(--cream);
-  }
-
-  .chat-input {
-    flex: 1;
-    background: var(--warm-white);
-    border: 0.5px solid var(--border-strong);
-    border-radius: 3px;
-    padding: 0.55rem 0.8rem;
-    font-family: var(--font-body);
-    font-size: 0.82rem;
-    color: var(--charcoal);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
+  /* INPUT */
+  .chat-input-area { padding: 0.8rem 1rem; border-top: 0.5px solid var(--border); display: flex; gap: 0.6rem; background: var(--cream); }
+  .chat-input { flex: 1; background: var(--warm-white); border: 0.5px solid var(--border-strong); border-radius: 3px; padding: 0.55rem 0.8rem; font-family: var(--font-body); font-size: 0.82rem; color: var(--charcoal); outline: none; transition: border-color 0.2s; }
   .chat-input:focus { border-color: var(--accent); }
   .chat-input::placeholder { color: var(--light); }
-
-  .send-btn {
-    background: var(--charcoal);
-    color: var(--cream);
-    border: none;
-    padding: 0.55rem 1rem;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-family: var(--font-body);
-    letter-spacing: 0.05em;
-    transition: background 0.15s;
-    white-space: nowrap;
-  }
-
+  .send-btn { background: var(--charcoal); color: var(--cream); border: none; padding: 0.55rem 1rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem; font-family: var(--font-body); letter-spacing: 0.05em; transition: background 0.15s; white-space: nowrap; }
   .send-btn:hover { background: var(--accent); }
-  .send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* RESERVATION FORM */
-  .reservation-panel {
-    display: none;
-    padding: 1rem 1.2rem;
-    border-top: 0.5px solid var(--border);
-    background: var(--accent-pale);
-    flex-direction: column;
-    gap: 0.7rem;
-  }
-
+  /* RESERVATION */
+  .reservation-panel { display: none; padding: 1rem 1.2rem; border-top: 0.5px solid var(--border); background: var(--accent-pale); flex-direction: column; gap: 0.7rem; }
   .reservation-panel.active { display: flex; }
-
-  .res-title {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--charcoal);
-  }
-
-  .res-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
-  }
-
-  .res-input {
-    padding: 0.5rem 0.7rem;
-    border: 0.5px solid var(--border-strong);
-    border-radius: 3px;
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    background: white;
-    color: var(--charcoal);
-    outline: none;
-    width: 100%;
-  }
-
+  .res-title { font-family: var(--font-display); font-size: 1rem; font-weight: 400; color: var(--charcoal); }
+  .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .res-input { padding: 0.5rem 0.7rem; border: 0.5px solid var(--border-strong); border-radius: 3px; font-family: var(--font-body); font-size: 0.78rem; background: white; color: var(--charcoal); outline: none; width: 100%; }
   .res-input:focus { border-color: var(--accent); }
-
-  .res-submit {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 0.6rem 1rem;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.78rem;
-    font-family: var(--font-body);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    transition: background 0.15s;
-  }
-
+  .res-submit { background: var(--accent); color: white; border: none; padding: 0.6rem 1rem; border-radius: 3px; cursor: pointer; font-size: 0.78rem; font-family: var(--font-body); letter-spacing: 0.05em; transition: background 0.15s; }
   .res-submit:hover { background: var(--charcoal); }
-
-  .res-cancel {
-    background: transparent;
-    border: 0.5px solid var(--border-strong);
-    padding: 0.5rem 0.8rem;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.78rem;
-    font-family: var(--font-body);
-    color: var(--mid);
-  }
-
+  .res-cancel { background: transparent; border: 0.5px solid var(--border-strong); padding: 0.5rem 0.8rem; border-radius: 3px; cursor: pointer; font-size: 0.78rem; font-family: var(--font-body); color: var(--mid); }
   .res-btns { display: flex; gap: 0.5rem; }
 
   /* FEATURES */
-  .features {
-    background: var(--charcoal);
-    color: var(--cream);
-  }
-
-  .features-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
+  .features { background: var(--charcoal); color: var(--cream); }
+  .features-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
   .features .section-title { color: var(--cream); }
   .features .section-desc { color: var(--light); max-width: 600px; margin: 0 auto 3.5rem; }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .feature-item {
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid rgba(255,255,255,0.1);
-    border-radius: 4px;
-    padding: 2rem 1.5rem;
-    text-align: left;
-  }
-
-  .feature-icon {
-    width: 36px; height: 36px;
-    border: 0.5px solid var(--accent);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    color: var(--accent);
-  }
-
-  .feature-title {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-    color: var(--cream);
-  }
-
+  .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .feature-item { background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2rem 1.5rem; text-align: left; }
+  .feature-icon { width: 36px; height: 36px; border: 0.5px solid var(--accent); border-radius: 3px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1rem; color: var(--accent); }
+  .feature-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--cream); }
   .feature-text { font-size: 0.82rem; color: var(--light); line-height: 1.7; }
 
-  /* CTA SECTION */
-  .cta-section {
-    background: var(--warm-white);
-    border-top: 0.5px solid var(--border);
-    text-align: center;
-  }
-
+  /* CTA */
+  .cta-section { background: var(--warm-white); border-top: 0.5px solid var(--border); text-align: center; }
   .cta-inner { max-width: 600px; margin: 0 auto; }
 
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--accent);
-    color: white;
-    padding: 0.9rem 2.5rem;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    margin-top: 2rem;
-    transition: background 0.2s;
-  }
-
-  .cta-btn:hover { background: var(--charcoal); }
-
   /* FOOTER */
-  footer {
-    background: var(--charcoal-soft);
-    color: var(--light);
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    border-top: 0.5px solid rgba(255,255,255,0.08);
-  }
-
+  footer { background: var(--charcoal-soft); color: var(--light); text-align: center; padding: 2rem; font-size: 0.78rem; letter-spacing: 0.06em; border-top: 0.5px solid rgba(255,255,255,0.08); }
   footer span { color: var(--accent); }
 
   /* RESPONSIVE */
@@ -637,7 +138,6 @@
     .nav-links { gap: 1.5rem; }
     section { padding: 4rem 1.5rem; }
   }
-
   @media (max-width: 600px) {
     .nav-links { display: none; }
     .about-stats { grid-template-columns: 1fr 1fr; }
@@ -647,14 +147,12 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Riley Navratil</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#demos">Live Demos</a></li>
     <li><a href="#features">Features</a></li>
-
   </ul>
 </nav>
 
@@ -678,22 +176,10 @@
       <p class="section-desc">Whether you run a fine-dining establishment, a neighbourhood bar, or a cozy café, these bots handle the repetitive questions so your team can focus on what they do best.</p>
     </div>
     <div class="about-stats">
-      <div class="stat-card">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Guest support, always on</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Tailored bot types</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">∞</div>
-        <div class="stat-label">Simultaneous conversations</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Custom to your brand</div>
-      </div>
+      <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Guest support, always on</div></div>
+      <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Tailored bot types</div></div>
+      <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Simultaneous conversations</div></div>
+      <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Custom to your brand</div></div>
     </div>
   </div>
 </section>
@@ -704,12 +190,11 @@
     <div class="demos-header">
       <span class="section-label">Interactive demos</span>
       <h2 class="section-title">Try the bots yourself</h2>
-      <p class="section-desc" style="margin: 0 auto;">Each assistant below is a live example of what I can build for your venue. Ask it anything — these are powered by real AI.</p>
+      <p class="section-desc" style="margin: 0 auto;">Each assistant below is a live example of what I can build for your venue. Click a suggested question or type your own.</p>
     </div>
-
     <div class="bots-grid">
 
-      <!-- BOT 1: DINE-IN RESTAURANT -->
+      <!-- BOT 1: DINE-IN -->
       <div class="bot-card">
         <div class="bot-header">
           <div class="bot-type">Dine-In Restaurant</div>
@@ -748,7 +233,7 @@
                 <option>8:00 PM</option><option>8:15 PM</option><option>8:30 PM</option><option>8:45 PM</option>
                 <option>9:00 PM</option><option>9:15 PM</option><option>9:30 PM</option><option>9:45 PM</option>
               </select>
-              <input class="res-input" type="number" placeholder="Guests" min="1" max="20" id="res-guests">
+              <input class="res-input" type="number" placeholder="No. of guests" min="1" max="20" id="res-guests">
               <input class="res-input" type="text" placeholder="Special requests" id="res-notes">
             </div>
             <div class="res-btns">
@@ -758,7 +243,7 @@
           </div>
           <div class="chat-input-area">
             <input class="chat-input" type="text" id="input1" placeholder="Ask me anything…" onkeydown="if(event.key==='Enter')sendMsg(1)">
-            <button class="send-btn" id="send1" onclick="sendMsg(1)">Send</button>
+            <button class="send-btn" onclick="sendMsg(1)">Send</button>
           </div>
         </div>
       </div>
@@ -768,7 +253,7 @@
         <div class="bot-header">
           <div class="bot-type">Bar</div>
           <div class="bot-name">The Bar Guide</div>
-          <div class="bot-desc">Drinks Menu · Specials · Events · FAQs</div>
+          <div class="bot-desc">Drinks · Specials · Events · FAQs</div>
         </div>
         <div class="chat-body">
           <div class="chat-messages" id="chat2-messages">
@@ -785,7 +270,7 @@
           </div>
           <div class="chat-input-area">
             <input class="chat-input" type="text" id="input2" placeholder="Ask about drinks, events…" onkeydown="if(event.key==='Enter')sendMsg(2)">
-            <button class="send-btn" id="send2" onclick="sendMsg(2)">Send</button>
+            <button class="send-btn" onclick="sendMsg(2)">Send</button>
           </div>
         </div>
       </div>
@@ -812,7 +297,7 @@
           </div>
           <div class="chat-input-area">
             <input class="chat-input" type="text" id="input3" placeholder="Ask about coffee, food…" onkeydown="if(event.key==='Enter')sendMsg(3)">
-            <button class="send-btn" id="send3" onclick="sendMsg(3)">Send</button>
+            <button class="send-btn" onclick="sendMsg(3)">Send</button>
           </div>
         </div>
       </div>
@@ -824,7 +309,7 @@
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="features-inner">
-    <span class="section-label" style="color: var(--accent-light);">Why it works</span>
+    <span class="section-label" style="color:var(--accent-light);">Why it works</span>
     <h2 class="section-title">Built for real hospitality</h2>
     <p class="section-desc">These aren't generic chatbots. Each assistant is crafted around your specific venue, team, and guests.</p>
     <div class="features-grid">
@@ -841,7 +326,7 @@
       <div class="feature-item">
         <div class="feature-icon">◎</div>
         <div class="feature-title">Instant guest answers</div>
-        <p class="feature-text">Allergy information, dietary options, parking, dress codes, events — answered instantly, any time of day, without tying up your staff.</p>
+        <p class="feature-text">Allergy info, dietary options, parking, dress codes, events — answered instantly, any time of day, without tying up your staff.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon">▲</div>
@@ -851,108 +336,154 @@
       <div class="feature-item">
         <div class="feature-icon">⬡</div>
         <div class="feature-title">Your brand, your voice</div>
-        <p class="feature-text">Formal and refined for fine dining, casual and fun for a neighbourhood bar — the tone, name, and personality match your establishment perfectly.</p>
+        <p class="feature-text">Formal and refined for fine dining, casual and fun for a bar — the tone, name, and personality match your establishment perfectly.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon">∿</div>
         <div class="feature-title">Always improving</div>
-        <p class="feature-text">As your menu changes or new questions arise, your bot updates to stay accurate. Ongoing support is part of every package.</p>
+        <p class="feature-text">As your menu changes or new questions arise, your bot updates to stay accurate. Ongoing support is included.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="contact">
+<section class="cta-section">
   <div class="cta-inner">
-
     <h2 class="section-title">Ready to bring AI to your venue?</h2>
-    <p class="section-desc" style="margin: 0 auto;">These demos show just a fraction of what's possible. I'd love to learn about your restaurant and build something tailored exactly to your guests and your team.</p>
-
+    <p class="section-desc" style="margin:0 auto;">These demos show just a fraction of what's possible. I'd love to learn about your restaurant and build something tailored exactly to your guests and your team.</p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 <span>Riley Navratil</span> · Restaurant AI Solutions · All rights reserved</p>
 </footer>
 
 <script>
-const SYSTEM_PROMPTS = {
-  1: `You are "Maison Assistant," the AI chatbot for a high-end dine-in restaurant called Maison. You are warm, knowledgeable, and professional — like a seasoned maître d'.
+// ─── SCRIPTED RESPONSES ───────────────────────────────────────────────────────
 
-Your role: answer guest questions about the restaurant. You can also take reservation requests by telling the user you'll open the reservation form for them.
+const RESPONSES = {
+  1: [
+    { keys:['reserv','book','table','seat'], action:'open_reservation',
+      reply:"Absolutely, I'd love to arrange a table for you! Let me open our reservation form." },
+    { keys:['hour','open','close','time','when','schedule'],
+      reply:"We're open Tuesday through Sunday. Lunch service runs 12:00 PM – 3:00 PM, and dinner from 5:30 PM – 10:00 PM. We're closed on Mondays. We recommend reserving ahead for dinner, especially on weekends!" },
+    { keys:['vegetarian','vegan','plant','veggie','meat-free'],
+      reply:"Yes! We have a dedicated selection of vegetarian and vegan dishes — our kitchen loves creating plant-forward plates that are just as satisfying as the rest of the menu. Just let us know your preference when booking and our team will take great care of you." },
+    { keys:['gluten','celiac','allerg','intoleran','dairy','nut','shellfish'],
+      reply:"We take allergens very seriously. Please inform us of any dietary requirements when making your reservation and our kitchen will ensure your meal is prepared safely. Our staff are fully trained on allergen information and happy to guide you through the menu." },
+    { keys:['park','car','driv','valet'],
+      reply:"There's a public parking garage two blocks away on Elm Street, and metered street parking nearby. We offer complimentary valet parking on Friday and Saturday evenings — just pull up to the main entrance and our team will take care of you." },
+    { keys:['dress','code','smart','casual','formal','attire','wear','outfit'],
+      reply:"We ask for smart casual attire — think neat trousers, blouses, or collared shirts. We want everyone to feel at ease while maintaining the warmth of the room. Sportswear and athletic shoes are kindly not permitted in the dining room." },
+    { keys:['menu','food','dish','eat','cuisine','chef','seasonal','course','starter','main','dessert'],
+      reply:"Our menu is Contemporary European, drawing on French technique and the finest local seasonal produce. It changes quarterly to reflect the best of each season. We're known for our house-made pastas, dry-aged meats, and our ever-changing dessert selection — each one a little work of art." },
+    { keys:['private','group','event','function','corporate','birthday','anniversar','wedding','celebrat'],
+      reply:"We'd be delighted to host your event! Our private dining room seats up to 24 guests and features a bespoke set menu tailored to the occasion. For groups of 8 or more, we recommend reaching out to our events team so we can make the evening truly special." },
+    { keys:['dog','pet','animal'],
+      reply:"We love four-legged guests! Dogs are welcome on our outdoor terrace, which is open weather permitting. Unfortunately, pets aren't permitted in the indoor dining room — but the terrace is lovely year-round with heaters in cooler months." },
+    { keys:['wine','cocktail','drink','beverage','bar','alcohol','beer','spirit','sommelier'],
+      reply:"Our wine list is curated by our in-house sommelier, featuring a thoughtful selection from both Old and New World producers. Our bar team also crafts classic and seasonal cocktails. Don't hesitate to ask your server for a pairing recommendation — they love talking about it." },
+    { keys:['wifi','wi-fi','internet','connect','password'],
+      reply:"Yes, complimentary WiFi is available throughout the restaurant. You'll find the network name and password on your table card, or just ask any member of staff." },
+    { keys:['child','kid','famil','baby','highchair','pram','stroller'],
+      reply:"Families are always welcome at Maison! We have high chairs available and a children's menu for younger guests. We kindly ask that little ones are kept settled during the dinner service to maintain the atmosphere for all our guests." },
+    { keys:['cancel','change','modif','amend','reschedul'],
+      reply:"We kindly ask for at least 24 hours' notice for any cancellations or changes. You can reach us by phone or via the link in your confirmation email. We completely understand that plans change — just let us know as soon as you can." },
+    { keys:['gift','voucher','card','present'],
+      reply:"Maison gift vouchers make a wonderful present for any occasion! Available in any denomination, they can be purchased at the host desk or by calling us. We'll send them by post or email — whichever you prefer." },
+    { keys:['walk','walk-in','without book','no reserv','drop in'],
+      reply:"Walk-ins are always welcome, though we can't guarantee a table during peak times — particularly Thursday to Saturday evenings. Bar seating is available on a first-come, first-served basis and is a lovely spot for a glass of wine and a few small plates." },
+    { keys:['covid','safe','clean','hygiene','health'],
+      reply:"The health and comfort of our guests is our top priority. Our kitchen and dining room are cleaned to the highest standards, and our team follows all current food safety guidelines. Please don't hesitate to speak with a member of staff if you have any concerns." },
+  ],
 
-Key details about Maison (invent plausible details if needed, stay consistent):
-- Type: upscale dine-in restaurant
-- Cuisine: Contemporary European / French-inspired
-- Hours: Tuesday–Sunday, 12pm–10pm. Closed Mondays.
-- Location: Downtown, with paid parking two blocks away and valet on weekends
-- Reservations: Recommended, especially on weekends. Walk-ins welcome for bar seating.
-- Menu: Seasonal, changes quarterly. Features locally sourced produce. Vegetarian and vegan options available. Gluten-free options on request.
-- Dress code: Smart casual
-- Private dining: Available for groups of 8+
-- Allergen info: Staff can advise on all allergens — guests should notify on booking
-- Dog-friendly: Outdoor terrace only
+  2: [
+    { keys:['cocktail','signature','drink','mix','spirit','recommend'],
+      reply:"You've come to the right place! Our signature creations include the Smoked Maple Old Fashioned, the Hibiscus Spritz, a Watermelon Basil Daiquiri, and our legendary Espresso Martini. We also do all the classics — just name it and the bar team will sort you out. The menu rotates seasonally so there's always something fresh." },
+    { keys:['happy hour','special','deal','discount','promo','offer'],
+      reply:"Happy Hour runs Monday to Friday, 4:00 PM – 7:00 PM. We offer rotating specials on selected cocktails, house wine by the glass, and draught beers. It's a great excuse to come in early and try a couple of things before the evening crowd arrives." },
+    { keys:['live music','band','dj','entertainment','perform','music','show','gig'],
+      reply:"Yes! We have live music every Friday and Saturday night from around 9:00 PM — usually local bands, acoustic acts, and soul or jazz nights. We also host a DJ on the last Saturday of each month. Check our Instagram for the latest lineup and upcoming events." },
+    { keys:['beer','tap','draft','draught','ale','lager','ipa','stout','craft'],
+      reply:"We've got 12 rotating taps featuring local and regional craft breweries — so there's always something new pouring. You'll usually find a mix of IPAs, pale ales, session lagers, and a darker option. We also carry a curated bottle and can selection if you're after something specific." },
+    { keys:['wine','white','red','ros','sparkling','champagne','prosecco','natural'],
+      reply:"Our wine list is concise but well-chosen — reds, whites, rosés, and sparkling all available by the glass or bottle. We rotate our by-the-glass selection monthly and lean toward natural and low-intervention producers. Ask the bar team what they're excited about tonight!" },
+    { keys:['food','eat','snack','menu','kitchen','bite','hungry','plate'],
+      reply:"We serve bar snacks and sharing plates designed for grazing — think charcuterie boards, truffle loaded fries, sticky chicken wings, bruschetta, and a rotating daily special. The kitchen is open until 30 minutes before close, so no rush." },
+    { keys:['hour','open','close','time','when','schedule'],
+      reply:"We're open Monday–Thursday 4 PM to 1 AM, Friday 3 PM to 2 AM, Saturday 12 PM to 2 AM, and Sunday 1 PM to 11 PM. Friday and Saturday fill up fast — come a little earlier if you want to grab a good spot!" },
+    { keys:['reserv','book','table'],
+      reply:"We're a walk-in venue — no reservations needed, just come on in! If you're planning to come as a large group of 10 or more, shoot us an email ahead of time and we'll do our best to make sure there's space for everyone." },
+    { keys:['mocktail','non-alcohol','soft drink','no alcohol','sober','juice','soda','zero'],
+      reply:"Our mocktail menu is a genuine highlight — we put the same creativity into our non-alcoholic drinks as we do our cocktails. Think house-made shrubs, botanical sodas, and seasonal ingredients. We also have soft drinks, fresh juices, and sparkling water." },
+    { keys:['quiz','trivia','event','night','week','tuesday'],
+      reply:"Quiz night is every Tuesday from 7:30 PM — completely free to enter, teams of up to 6 welcome. There are prizes for the top three teams and it's always a brilliant night. It fills up quickly, so arrive early to grab your table and get settled in." },
+    { keys:['dog','pet','animal'],
+      reply:"Dogs are absolutely welcome here — the more the merrier! Well-behaved pups can join you at the bar and on our outdoor patio. We keep water bowls behind the bar, so don't be shy about asking." },
+    { keys:['park','car','driv','transport','transit','bus'],
+      reply:"Street parking is available on the surrounding roads and there's a public car park about a 5-minute walk away. On weekends we'd honestly recommend public transit or a cab — parking fills up fast and the neighbourhood is very walkable." },
+    { keys:['wifi','wi-fi','internet','password','connect'],
+      reply:"Yes, free WiFi available throughout. The password changes weekly — just ask any member of the bar team and they'll give you the current one." },
+    { keys:['age','id','over 18','challenge','young','under'],
+      reply:"We operate a strict Challenge 25 policy. If you look under 25, our team will ask for valid photo ID — a passport or driving licence is ideal. We want everyone to have a fantastic night, safely." },
+    { keys:['private','hire','event','function','birthday','corporat'],
+      reply:"We do private hire! The whole venue or a section of it can be booked for birthdays, corporate events, and private parties. Get in touch via email and our events team will walk you through the options." },
+  ],
 
-IMPORTANT RESERVATION RULE: If the user asks to make, book, or reserve a table — always include the exact text [OPEN_RESERVATION_FORM] somewhere in your response. This triggers the form UI. Only include this tag when the user explicitly asks to book or reserve.
-
-Do NOT mention specific prices. Keep responses concise and friendly, under 80 words unless detail is genuinely needed.`,
-
-  2: `You are "The Bar Guide," the AI chatbot for a vibrant, welcoming bar. You're friendly, knowledgeable, and enthusiastic about drinks.
-
-Key details (invent plausible details if needed, stay consistent):
-- Type: Craft cocktail bar with a strong wine and beer selection
-- Vibe: Relaxed neighbourhood bar, great for groups and date nights
-- Hours: Monday–Thursday 4pm–1am, Friday 3pm–2am, Saturday 12pm–2am, Sunday 1pm–11pm
-- Happy Hour: Monday–Friday 4pm–7pm with rotating specials
-- Cocktail menu: Classic cocktails plus original house creations. Seasonal cocktail menu updated every 3 months.
-- Beer: 12 rotating taps featuring local craft breweries, plus a curated bottle list
-- Wine: Curated list of 25+ wines by the glass and bottle
-- Non-alcoholic: Full mocktail menu available — not an afterthought
-- Food: Bar snacks and sharing plates only — not a full restaurant
-- Events: Live music Friday and Saturday nights. Quiz night Tuesdays.
-- Bookings: You do NOT take table reservations — walk-ins only. Large groups (10+) can email ahead.
-- Dog-friendly: Yes, dogs welcome at the bar and on the patio
-
-IMPORTANT: This bot does NOT handle reservations. If someone asks to book, politely explain it's walk-in only and mention the group email option.
-
-Do NOT mention specific prices. Keep responses conversational, warm, and brief — under 80 words.`,
-
-  3: `You are "Café Companion," the AI chatbot for an independent, specialty café. You're warm, knowledgeable about coffee, and passionate about great food.
-
-Key details (invent plausible details, stay consistent):
-- Type: Independent specialty coffee shop with a focus on quality and community
-- Hours: Monday–Friday 7am–6pm, Saturday 8am–5pm, Sunday 9am–4pm
-- Coffee: Single-origin beans sourced ethically, roasted by a local roaster. Espresso, filter, pour-over, cold brew.
-- Milk alternatives: Oat, almond, soy, and coconut available
-- Food: Fresh pastries baked in-house each morning (croissants, muffins, scones), sandwiches and toasties, seasonal salads
-- Dietary: Vegan and gluten-free pastry options available daily. All sandwiches can be adapted.
-- WiFi: Yes, free WiFi for all customers. Password at the counter.
-- Seating: Indoor and outdoor. First come, first served. No reservations.
-- Loyalty card: Stamp card — buy 9 coffees, get the 10th free
-- Takeaway: Full menu available to take away with compostable packaging
-
-IMPORTANT: This café does NOT take reservations. Politely let users know it's walk-in only.
-
-Do NOT mention specific prices. Keep responses friendly, genuine, and concise — under 80 words.`
+  3: [
+    { keys:['coffee','espresso','cappuccino','latte','flat white','americano','long black','brew','roast','bean','origin','single'],
+      reply:"We're a specialty coffee shop through and through. Our beans are single-origin, ethically sourced, and roasted fresh by our local roaster partner each week. On espresso we do everything from a tight ristretto to a silky flat white or a classic cappuccino. We also offer filter, pour-over, and cold brew depending on the day." },
+    { keys:['oat','almond','soy','coconut','milk','alternative','dairy-free','dairy free','non-dairy','plant milk'],
+      reply:"We stock oat, almond, soy, and coconut milk as standard — all at no extra charge. Oat is our most popular alternative; it steams beautifully and pairs wonderfully with our espresso. Just let us know your preference when ordering!" },
+    { keys:['pastry','croissant','muffin','scone','cake','bak','sweet','treat','pain'],
+      reply:"All our pastries are baked in-house fresh each morning — so they're at their very best early! On any given day you'll find butter croissants, pain au chocolat, seasonal muffins, fruit scones, and a daily special that changes with what's good. Heads up: we sell out of croissants by mid-morning on weekends!" },
+    { keys:['wifi','wi-fi','internet','connect','work','laptop','remote','password'],
+      reply:"Free WiFi is available — just ask for the password at the counter. We're a favourite spot for remote workers and students. We do kindly ask that during the busiest times (8–10 AM and 12–1 PM weekdays) you're mindful of table space if it's packed." },
+    { keys:['hour','open','close','time','when','schedule'],
+      reply:"We're open Monday to Friday 7:00 AM – 6:00 PM, Saturday 8:00 AM – 5:00 PM, and Sunday 9:00 AM – 4:00 PM. Come early on weekends for the freshest pastries — they go fast!" },
+    { keys:['vegan','plant','dairy-free','vegetarian','plant-based'],
+      reply:"We have clearly labelled vegan pastry options every single day — at least two choices, sometimes more. All of our sandwiches and toasties can also be adapted to be fully vegan. Just let the team know and we'll point you in the right direction." },
+    { keys:['gluten','celiac','allerg','intoleran','free-from'],
+      reply:"We have gluten-free pastry options available daily, clearly labelled on the counter display. Please let us know about any allergies when ordering so we can help you make a safe choice. Our kitchen does handle gluten products, so we want to be transparent about that." },
+    { keys:['sandwich','toast','toastie','lunch','savoury','food','eat','hungry','meal','salad'],
+      reply:"Our food menu covers freshly made sandwiches, hot toasties, and a seasonal salad or grain bowl. Everything is made to order using locally sourced ingredients and the menu shifts with the seasons. It's simple, honest food done really well." },
+    { keys:['seat','inside','outdoor','terrace','table','space','sit'],
+      reply:"We have indoor seating for around 30 guests and a lovely outdoor terrace for when the weather cooperates. All seating is first-come, first-served — we don't take reservations for the café, so just come on in!" },
+    { keys:['loyalty','stamp','card','reward','free','points','ninth','tenth'],
+      reply:"We do! Our classic stamp card gives you every 10th coffee on us — pick one up at the counter. We also have a digital version if you'd rather not carry a physical card. Ask the team to get you set up." },
+    { keys:['takeaway','take away','take-away','to go','takeout','grab'],
+      reply:"Our full menu is available to take away — coffee, food, pastries, all of it. We use compostable cups, bags, and packaging throughout because good coffee and a healthy planet shouldn't be mutually exclusive." },
+    { keys:['dog','pet','animal'],
+      reply:"Very much welcome! We have a water bowl outside and our staff genuinely love meeting them. We ask that dogs stay on their leads and outside in the terrace area — but they're always a highlight of the day." },
+    { keys:['cold brew','iced','iced coffee','cold coffee'],
+      reply:"Cold brew and iced lattes are on the menu year-round here — not just a summer thing. Our cold brew is steeped overnight for a smooth, naturally sweet concentrate with low acidity. Highly recommend it any time of year." },
+    { keys:['decaf','caffeine','caffeine-free'],
+      reply:"Yes! We offer a high-quality Swiss Water Process decaf across the full espresso menu — so you're not compromising on taste, just skipping the caffeine. Perfect for an afternoon cup without the buzz." },
+    { keys:['park','car','driv','transport'],
+      reply:"There's free street parking on the surrounding side roads and a pay-and-display car park about a 3-minute walk away. We're also easy to reach by public transit — bus stops right around the corner." },
+    { keys:['gift','voucher','card','present'],
+      reply:"Yes, café gift cards are available at the counter in any amount — they make a lovely little gift for coffee lovers. Just ask a member of the team and we'll sort you out." },
+  ]
 };
 
-const histories = { 1: [], 2: [], 3: [] };
-const loading = { 1: false, 2: false, 3: false };
+const FALLBACK = {
+  1: "That's a great question! When this bot is set up specifically for your restaurant, it'll be trained on your exact menu, policies, and details — so it can answer that precisely. For now, feel free to ask about our hours, menu, reservations, parking, or allergens!",
+  2: "Good question! A fully configured version of this bot would have your bar's specific details ready to go. For now, try asking about our drinks, happy hour, events, or opening times — I've got all of those covered!",
+  3: "Great question! When personalised for your café, this assistant would know the answer right away. For now, try asking about our coffee, pastries, dietary options, opening hours, or WiFi!"
+};
 
 function getTime() {
-  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  return new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
 }
 
 function appendMsg(chatId, role, text) {
   const container = document.getElementById(`chat${chatId}-messages`);
   const div = document.createElement('div');
   div.className = `msg ${role}`;
-  div.innerHTML = `<div class="msg-bubble">${text.replace(/\n/g, '<br>')}</div><div class="msg-time">${getTime()}</div>`;
+  div.innerHTML = `<div class="msg-bubble">${text.replace(/\n/g,'<br>')}</div><div class="msg-time">${getTime()}</div>`;
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
-  return div;
 }
 
 function showTyping(chatId) {
@@ -975,89 +506,60 @@ function hideQuickReplies(chatId) {
   if (qr) qr.style.display = 'none';
 }
 
-async function sendMsg(chatId, userText) {
-  if (loading[chatId]) return;
+function getResponse(chatId, text) {
+  const lower = text.toLowerCase();
+  for (const rule of RESPONSES[chatId]) {
+    if (rule.keys.some(k => lower.includes(k))) return rule;
+  }
+  return { reply: FALLBACK[chatId] };
+}
+
+function sendMsg(chatId, userText) {
   const input = document.getElementById(`input${chatId}`);
   const text = userText || input.value.trim();
   if (!text) return;
   input.value = '';
-
   hideQuickReplies(chatId);
   appendMsg(chatId, 'user', text);
-  histories[chatId].push({ role: 'user', content: text });
-
-  loading[chatId] = true;
-  document.getElementById(`send${chatId}`).disabled = true;
   showTyping(chatId);
-
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: SYSTEM_PROMPTS[chatId],
-        messages: histories[chatId]
-      })
-    });
-
-    const data = await response.json();
-    const reply = data.content?.map(b => b.text || '').join('') || 'Sorry, I had trouble responding. Please try again.';
-
+  const delay = 750 + Math.random() * 650;
+  setTimeout(() => {
     removeTyping(chatId);
-    histories[chatId].push({ role: 'assistant', content: reply });
-
-    if (chatId === 1 && reply.includes('[OPEN_RESERVATION_FORM]')) {
-      const cleanReply = reply.replace('[OPEN_RESERVATION_FORM]', '').trim();
-      if (cleanReply) appendMsg(chatId, 'bot', cleanReply);
-      document.getElementById('res-panel').classList.add('active');
-    } else {
-      appendMsg(chatId, 'bot', reply);
+    const matched = getResponse(chatId, text);
+    appendMsg(chatId, 'bot', matched.reply);
+    if (chatId === 1 && matched.action === 'open_reservation') {
+      setTimeout(() => {
+        document.getElementById('res-panel').classList.add('active');
+        const c = document.getElementById('chat1-messages');
+        c.scrollTop = c.scrollHeight;
+      }, 200);
     }
-
-  } catch (e) {
-    removeTyping(chatId);
-    appendMsg(chatId, 'bot', 'Sorry, I ran into an issue. Please try again in a moment.');
-  }
-
-  loading[chatId] = false;
-  document.getElementById(`send${chatId}`).disabled = false;
+  }, delay);
 }
 
-function sendQuick(chatId, text) {
-  sendMsg(chatId, text);
-}
+function sendQuick(chatId, text) { sendMsg(chatId, text); }
 
 function cancelRes() {
   document.getElementById('res-panel').classList.remove('active');
 }
 
 function submitReservation() {
-  const name = document.getElementById('res-name').value.trim();
-  const date = document.getElementById('res-date').value;
-  const time = document.getElementById('res-time').value;
+  const name   = document.getElementById('res-name').value.trim();
+  const date   = document.getElementById('res-date').value;
+  const time   = document.getElementById('res-time').value;
   const guests = document.getElementById('res-guests').value;
-
   if (!name || !date || !time || !guests) {
     alert('Please fill in your name, date, time, and number of guests.');
     return;
   }
-
   document.getElementById('res-panel').classList.remove('active');
-
-  const formattedDate = new Date(date + 'T00:00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
-  const confirmMsg = `Your reservation request has been received!\n\n📅 ${formattedDate} at ${time}\n👥 ${guests} guest${guests > 1 ? 's' : ''}\n\nWe'll send a confirmation to the phone number provided shortly. We look forward to welcoming you to Maison!`;
-  appendMsg(1, 'bot', confirmMsg);
-
-  document.getElementById('res-name').value = '';
-  document.getElementById('res-phone').value = '';
-  document.getElementById('res-date').value = '';
-  document.getElementById('res-time').value = '';
-  document.getElementById('res-guests').value = '';
-  document.getElementById('res-notes').value = '';
-
-  histories[1].push({ role: 'assistant', content: confirmMsg });
+  const formatted = new Date(date + 'T00:00:00').toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long' });
+  const msg = `Wonderful, ${name}! Your reservation request has been received.\n\n📅 ${formatted} at ${time}\n👥 ${guests} guest${guests > 1 ? 's' : ''}\n\nWe'll send a confirmation to the number provided shortly. We very much look forward to welcoming you to Maison!`;
+  appendMsg(1, 'bot', msg);
+  ['res-name','res-phone','res-date','res-time','res-guests','res-notes'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
 }
 </script>
 </body>
